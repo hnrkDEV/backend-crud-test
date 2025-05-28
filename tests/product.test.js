@@ -65,7 +65,7 @@ describe('Product API', () => {
 
     expect(res.body.status).toBe('success');
     expect(res.body.results).toBe(2);
-    expect(res.body.data.products.length).toBe(2); // ← ajuste aqui
+    expect(res.body.data.products.length).toBe(2);
   });
 
 
