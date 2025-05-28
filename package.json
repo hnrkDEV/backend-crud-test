@@ -4,8 +4,14 @@
   "description": "RESTful API developed as part of a backend technical challenge. The application performs CRUD operations on a generic object using Node.js, Express, and MongoDB. The database runs inside a Docker container. The project follows clean architecture practices and includes Swagger documentation and unit tests with Jest.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
     "start": "nodemon src/app.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -26,6 +32,14 @@
     "mongoose": "^8.15.1",
     "nodemon": "^3.1.10",
     "swagger": "^0.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^10.1.4",
+    "supertest": "^7.1.1"
   }
 }

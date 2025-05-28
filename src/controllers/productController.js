@@ -9,10 +9,10 @@ exports.createProduct = catchAsync(async(req, res, next) => {
     res.status(201).json({
     status: 'success',
     data: {
-      product: newProduct
-    }
+    product: newProduct
+  }
   });
-  });
+});
 
 exports.listProducts = catchAsync(async(req, res, next) => {
   const products = await Product.find();
@@ -20,11 +20,33 @@ exports.listProducts = catchAsync(async(req, res, next) => {
   logger.info(`found ${products.length} products.`)
   res.status(200).json({
     status: 'success',
+    results: products.length,
     data: {
       products
     }
   });
 });
+
+
+exports.getProduct = catchAsync(async(req, res, next) => {
+  const { id } = req.params;
+
+  const product = await Product.findById(id);
+  if (!product) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Product not found',
+    });
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      product
+    }
+  });
+});
+
 
 exports.deleteProduct = catchAsync(async(req, res, next) => {
   const product = await Product.findByIdAndDelete(req.params.id);
@@ -53,6 +75,8 @@ exports.updateProduct = catchAsync(async(req, res, next) => {
     logger.info('Product updated successfully!')
   res.status(200).json({
     status: 'success',
-    data: updatedProd
+    data: {
+      product: updatedProd
+    }
   });
 });
