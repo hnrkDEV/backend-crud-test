@@ -1,0 +1,31 @@
+{
+  "name": "backend-crud-test",
+  "version": "1.0.0",
+  "description": "RESTful API developed as part of a backend technical challenge. The application performs CRUD operations on a generic object using Node.js, Express, and MongoDB. The database runs inside a Docker container. The project follows clean architecture practices and includes Swagger documentation and unit tests with Jest.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hnrkDEV/backend-crud-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hnrkDEV/backend-crud-test/issues"
+  },
+  "homepage": "https://github.com/hnrkDEV/backend-crud-test#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.1",
+    "nodemon": "^3.1.10",
+    "swagger": "^0.0.1",
+    "winston": "^3.17.0"
+  }
+}
